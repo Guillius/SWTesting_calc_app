@@ -65,7 +65,7 @@ public class OneOperandCalculation extends Calculation {
                         break;
             case "ln":  answer = Math.log( operand );
                         status = 0;
-                        if (Double.isNaN( answer ) ){
+                        if(Double.isNaN( answer ) ){
                             status = -1;
                             error = "Operand was NaN or less than zero.";
                         } else if ( Double.isInfinite( answer ) ){

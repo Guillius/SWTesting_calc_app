@@ -43,13 +43,77 @@ public class TwoOperandCalculation extends Calculation {
     
     /*
      * Executes the calculation specified by the TwoOperandCalculation object.
-     * @todo implement this
      * @return 0 is calculation went successful, -1 if an error occurs.
      */
     public int execute(){
-        //NOT YET IMPLEMENTED
-        //needs a switch statement based on operator
-        return -1;
+        
+        int status = -1;
+        
+        switch( operator ){
+            case "+":   answer = firstOperand + secondOperand;
+                        status = 0;
+                        break;
+            case "-":   answer = firstOperand - secondOperand;
+                        status = 0;
+                        break;
+            case ".":   answer = firstOperand * secondOperand;
+                        status = 0;
+                        break;
+            case "/":   
+                        if( secondOperand != 0.0 ){
+                            answer = firstOperand / secondOperand;
+                            status = 0;
+                        } else {
+                            status = -1;
+                            error = "Divide by zero.";
+                        }
+                        break;
+            case "^":   answer = Math.pow( firstOperand, secondOperand );
+                        status = 0;
+                        if( Double.isNaN( answer ) ){
+                            status = -1;
+                            error = "One operand is 'NaN' or another invalid condition Math.pow() applies.";
+                        }
+            case "V":
+            case "\u221A":  //Unicode character for square root
+                            if( secondOperand == 2.0 ){
+                                answer = Math.sqrt( firstOperand );
+                                status = 0;
+                            }else if( secondOperand == 3.0 ){
+                                answer = Math.cbrt( firstOperand );
+                                status = 0;
+                            } else{
+                                answer = Math.pow( firstOperand, 1/secondOperand);
+                                status = 0;
+                            }
+                            
+                            if( Double.isNaN( answer ) ){
+                                error = "First operand was NaN.";
+                                status = -1;
+                            } else if( Double.isInfinite( answer ) ){
+                                error = "First operand is Inf.";
+                                status = -1;
+                            }
+                            
+                            break;
+            case "log": answer = Math.log( firstOperand ) / Math.log( secondOperand ); //change of base formula
+                        status = 0;
+                        break;
+            case "mod": 
+                        try{
+                            answer = firstOperand % secondOperand;
+                            status = 0;
+                        } catch ( ArithmeticException ae ){
+                            error = "You probably tried 'n mod 0'.";
+                            status = -1;
+                        }
+                        break;
+            default:    status = -1;
+                        error = "Operator was not recognized by Calculation object.";
+                        break;
+        }                                                    
+        
+        return status;
     }
     
 }//end of class

@@ -42,7 +42,6 @@ public class VectorScalarCalculation extends Calculation {
     
     /**
      * Executes the VectorScalar Calculation.
-     * @todo implement this
      * @return 0 is calculation went successful, -1 if an error of some kind occured.
      */
     public int execute(){
