@@ -46,8 +46,12 @@ public class VectorScalarCalculation extends Calculation {
      * @return 0 is calculation went successful, -1 if an error of some kind occured.
      */
     public int execute(){
-        //NOT YET IMPLEMENTED
-        return -1;
+        
+        for( int i=0; i<vector.length; i++ ){
+            answer[i] = vector[i]*scalar;
+        }
+        
+        return 0;
     }
     
 }//end of class

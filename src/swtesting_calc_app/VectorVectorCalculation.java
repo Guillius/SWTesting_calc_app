@@ -84,7 +84,7 @@ public class VectorVectorCalculation extends Calculation {
         } else{
             double temp = 0.0;
             
-            for( int i=0; i<firstVectorOperand.length; i++){
+            for( int i=0; i<firstVectorOperand.length; i++ ){
                 temp += firstVectorOperand[i]*secondVectorOperand[i];
             }
             scalarAnswer = temp;
@@ -107,7 +107,7 @@ public class VectorVectorCalculation extends Calculation {
             double[] tempVector = new double[3];
             int n1, n2;
             
-            for( int i=0; i<3; i++){
+            for( int i=0; i<3; i++ ){
                 n1 = (i+1) % 3;
                 n2 = (i+2) % 3;
                 tempVector[i] = firstVectorOperand[n1]*secondVectorOperand[n2] - firstVectorOperand[n2]*secondVectorOperand[n1];
