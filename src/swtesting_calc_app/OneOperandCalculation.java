@@ -35,13 +35,50 @@ public class OneOperandCalculation extends Calculation {
     
     /**
      * Executes the calculation specified by this OneOperandCalculation object.
-     * @todo implement this
      * @return 0 is calculation went successful, -1 if an error of some kind occured. 
      */
     public int execute(){
-        //NOT YET IMPLEMENTED
-        //needs a switch statement based on operator
-        return -1;
+        
+        int status = -1;
+        
+        switch( operator ){
+            case "sin": answer = Math.sin( (operand/360.0)*2*Math.PI );
+                        status = 0;
+                        if( Double.isNaN( answer ) ){
+                            status = -1;
+                            error = "Operand was NaN or an infinity.";
+                        }
+                        break;
+            case "cos": answer = Math.cos( (operand/360.0)*2*Math.PI );
+                        status = 0;
+                        if ( Double.isNaN( answer ) ){
+                            status = -1;
+                            error = "Operand was NaN or an infinity.";
+                        }
+                        break;
+            case "tan": answer = Math.tan( (operand/360.0)*2*Math.PI );
+                        status = 0;
+                        if( Double.isNaN( answer ) ){
+                            status = -1;
+                            error = "Operand was NaN or an infinity.";
+                        }
+                        break;
+            case "ln":  answer = Math.log( operand );
+                        status = 0;
+                        if (Double.isNaN( answer ) ){
+                            status = -1;
+                            error = "Operand was NaN or less than zero.";
+                        } else if ( Double.isInfinite( answer ) ){
+                            status = -1;
+                            error = "Operand was pos_Inf or zero.";
+                        }
+                        break;
+            default:    status = -1;
+                        error = "Operator was not recognized by Calculation object.";
+                        break;
+        }
+        
+        return status;
     }
     
 }//end of class
