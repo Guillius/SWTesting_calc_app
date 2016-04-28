@@ -73,7 +73,11 @@ public class TwoOperandCalculation extends Calculation {
                         if( Double.isNaN( answer ) ){
                             status = -1;
                             error = "One operand is 'NaN' or another invalid condition Math.pow() applies.";
+                        } else if( secondOperand <= 0.0 && firstOperand == 0.0 ){
+                            status = -1;
+                            error = "Trying to raise 0 to a negative power, this leads to a Division by zero!";
                         }
+                        break;
             case "V":
             case "\u221A":  //Unicode character for square root
                             if( secondOperand == 2.0 ){
