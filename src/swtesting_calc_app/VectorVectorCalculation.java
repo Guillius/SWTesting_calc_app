@@ -56,6 +56,7 @@ public class VectorVectorCalculation extends Calculation {
      */
     public int execute(){
         //NOT YET IMPLEMENTED
+        //needs a switch statement based on operator
         //  don't forget to set the flag!
         return -1;
     }
