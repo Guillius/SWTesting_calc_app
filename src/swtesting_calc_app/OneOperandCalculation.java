@@ -51,7 +51,7 @@ public class OneOperandCalculation extends Calculation {
                         break;
             case "cos": answer = Math.cos( (operand/360.0)*2*Math.PI );
                         status = 0;
-                        if ( Double.isNaN( answer ) ){
+                        if( Double.isNaN( answer ) ){
                             status = -1;
                             error = "Operand was NaN or an infinity.";
                         }
