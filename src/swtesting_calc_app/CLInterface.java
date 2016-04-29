@@ -24,4 +24,20 @@ public class CLInterface {
         this.parser = new Parser( this );
         this.history = new ArrayList<Calculation>();
     }
+    
+    /**
+     * Adds the Calculation object to the end of the history ArrayList.
+     * @param calculationObj the object to append
+     */
+    public void addToHistory( Calculation calculationObj ){
+        history.add( calculationObj );
+    }
+    
+    public void getPreviousHistoryEntry(){
+        /* @todo implement this */
+    }
+    
+    public void getNextHistoryEntry(){
+        /* @todo implement this */
+    }
 }

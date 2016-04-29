@@ -95,7 +95,7 @@ public class VectorVectorCalculation extends Calculation {
     
     /**
      * Implements the cross product calculation.
-     * @return 0 if successful, -1 if unsuccessful
+     * @return 0 if successful, -1 if unsuccessful, 1 if answer is a vector.
      */
     private int crossProduct(){
         //don't forget to set the flag!
@@ -114,7 +114,7 @@ public class VectorVectorCalculation extends Calculation {
             }
             vectorAnswer = tempVector;
             flagScalarAnswer = false;
-            return 0;
+            return 1;
         }
     }
     

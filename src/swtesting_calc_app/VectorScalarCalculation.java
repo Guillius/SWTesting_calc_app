@@ -42,7 +42,7 @@ public class VectorScalarCalculation extends Calculation {
     
     /**
      * Executes the VectorScalar Calculation.
-     * @return 0 is calculation went successful, -1 if an error of some kind occured.
+     * @return 0 is calculation went successful, -1 if an error of some kind occured, 1 if answer is a vector.
      */
     public int execute(){
         
@@ -50,7 +50,7 @@ public class VectorScalarCalculation extends Calculation {
             answer[i] = vector[i]*scalar;
         }
         
-        return 0;
+        return 1;
     }
     
 }//end of class
