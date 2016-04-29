@@ -1,6 +1,8 @@
 
 package swtesting_calc_app;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author Guillaume
@@ -118,6 +120,18 @@ public class TwoOperandCalculation extends Calculation {
         }                                                    
         
         return status;
+    }
+    
+        public String toString(){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append( firstOperand );
+        sb.append( " ");
+        sb.append( operator );
+        sb.append( " " );
+        sb.append( secondOperand );
+        
+        return sb.toString();        
     }
     
 }//end of class

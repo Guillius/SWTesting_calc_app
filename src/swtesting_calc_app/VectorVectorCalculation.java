@@ -1,6 +1,8 @@
 
 package swtesting_calc_app;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author Guillaume
@@ -116,6 +118,26 @@ public class VectorVectorCalculation extends Calculation {
             flagScalarAnswer = false;
             return 1;
         }
+    }
+        
+    public String toString(){
+        StringBuilder sb = new StringBuilder("v(");
+        DecimalFormat answerFormat = new DecimalFormat( "0.##" );
+        
+        for( int i=0; i<firstVectorOperand.length; i++){
+            sb.append( answerFormat.format(firstVectorOperand[i]) );
+            if(i != firstVectorOperand.length-1) sb.append(",");
+            else sb.append(") ");
+        }
+        sb.append( operator );
+        
+        for( int i=0; i<secondVectorOperand.length; i++){
+            sb.append( answerFormat.format(secondVectorOperand[i]) );
+            if(i != secondVectorOperand.length-1) sb.append(",");
+            else sb.append(")");
+        }
+        
+        return sb.toString();        
     }
     
 }//end of class

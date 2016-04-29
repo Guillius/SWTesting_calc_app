@@ -81,4 +81,8 @@ public class OneOperandCalculation extends Calculation {
         return status;
     }
     
+    public String toString(){
+        return operator + " " + operand;
+    }
+    
 }//end of class
