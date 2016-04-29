@@ -118,10 +118,10 @@ public class Parser {
     }
 
     /**
-     * @param lastAnswer the lastAnswer to set
+     * @return the lastVectorAnswer
      */
-    public void setLastAnswer(double lastAnswer) {
-        this.lastAnswer = lastAnswer;
+    public double[] getLastVectorAnswer() {
+        return lastVectorAnswer;
     }
 
     /**
