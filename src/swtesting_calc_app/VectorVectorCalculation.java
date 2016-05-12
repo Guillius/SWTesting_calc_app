@@ -53,8 +53,7 @@ public class VectorVectorCalculation extends Calculation {
     
     /**
      * Executes the calculation as specified by this VectorVectorCalculation object
-     * @todo implement this
-     * @return 0 is calculation went successful, -1 if an error of some kind occured.
+     * @return 0 is calculation went successful, -1 if an error of some kind occured, 1 if answer is a vector.
      */
     public int execute(){
         //flag is set in the private methods if they execute successfully
@@ -102,7 +101,7 @@ public class VectorVectorCalculation extends Calculation {
     private int crossProduct(){
         //don't forget to set the flag!
         
-        if( firstVectorOperand.length == secondVectorOperand.length && firstVectorOperand.length == 3 ){
+        if( !(firstVectorOperand.length == secondVectorOperand.length && firstVectorOperand.length == 3) ){
             error = "Size of the vectors must be exactly 3 for each one.";
             return -1;
         } else{
@@ -126,14 +125,16 @@ public class VectorVectorCalculation extends Calculation {
         
         for( int i=0; i<firstVectorOperand.length; i++){
             sb.append( answerFormat.format(firstVectorOperand[i]) );
-            if(i != firstVectorOperand.length-1) sb.append(",");
+            if(i != firstVectorOperand.length-1) sb.append(";");
             else sb.append(") ");
         }
         sb.append( operator );
         
+        sb.append( " v(" );
+        
         for( int i=0; i<secondVectorOperand.length; i++){
             sb.append( answerFormat.format(secondVectorOperand[i]) );
-            if(i != secondVectorOperand.length-1) sb.append(",");
+            if(i != secondVectorOperand.length-1) sb.append(";");
             else sb.append(")");
         }
         

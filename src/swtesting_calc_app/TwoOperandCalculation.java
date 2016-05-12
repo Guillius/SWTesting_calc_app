@@ -58,6 +58,7 @@ public class TwoOperandCalculation extends Calculation {
             case "-":   answer = firstOperand - secondOperand;
                         status = 0;
                         break;
+            case "*":
             case ".":   answer = firstOperand * secondOperand;
                         status = 0;
                         break;
@@ -74,8 +75,8 @@ public class TwoOperandCalculation extends Calculation {
                         status = 0;
                         if( Double.isNaN( answer ) ){
                             status = -1;
-                            error = "One operand is 'NaN' or another invalid condition Math.pow() applies.";
-                        } else if( secondOperand <= 0.0 && firstOperand == 0.0 ){
+                            error = "One operand is 'NaN' or another invalid condition for Math.pow() applies.";
+                        } else if( secondOperand < 0.0 && firstOperand == 0.0 ){
                             status = -1;
                             error = "Trying to raise 0 to a negative power, this leads to a Division by zero!";
                         }
@@ -111,6 +112,10 @@ public class TwoOperandCalculation extends Calculation {
                             status = 0;
                         } catch ( ArithmeticException ae ){
                             error = "You probably tried 'n mod 0'.";
+                            status = -1;
+                        }
+                        if( Double.isNaN( answer ) ){
+                            error = "You migh have tried 'n mod 0.0'.";
                             status = -1;
                         }
                         break;

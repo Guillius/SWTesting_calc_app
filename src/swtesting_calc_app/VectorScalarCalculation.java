@@ -48,7 +48,13 @@ public class VectorScalarCalculation extends Calculation {
      */
     public int execute(){
         
-        answer = vector;        //to get rid of the "null" for answer + answer has the right length instantly
+        if( !operator.equals(".") && !operator.equals("*") ){
+            error = "operator must be '.' or '*' for this type of Calculation.";
+            return -1;
+        }
+        
+        
+        answer = new double[ vector.length ];  //to get rid of the "null" for answer + answer has the right length instantly
         
         for( int i=0; i<vector.length; i++ ){
             answer[i] = vector[i]*scalar;
@@ -63,7 +69,7 @@ public class VectorScalarCalculation extends Calculation {
         
         for( int i=0; i<vector.length; i++){
             sb.append( answerFormat.format( vector[i]) );
-            if(i != vector.length-1) sb.append(",");
+            if(i != vector.length-1) sb.append(";");
             else sb.append(") ");
         }
         

@@ -34,6 +34,11 @@ public class Parser {
      */
     public int parseInputString(String input){
         
+        if( input == null ){
+            errorMessage = "Input string was null!";
+            return -1;
+        }
+        
         int status = -1;
         
         Calculation calculationObj;
