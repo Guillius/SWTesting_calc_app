@@ -14,7 +14,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({swtesting_calc_app.ParserTest.class, swtesting_calc_app.CLInterfaceTest.class, swtesting_calc_app.OneOperandCalculationTest.class, swtesting_calc_app.VectorVectorCalculationTest.class, swtesting_calc_app.TwoOperandCalculationTest.class, swtesting_calc_app.VectorScalarCalculationTest.class})
-public class Swtesting_calc_appSuite {
+public class FirstSuite {
 
     @BeforeClass
     public static void setUpClass() throws Exception {

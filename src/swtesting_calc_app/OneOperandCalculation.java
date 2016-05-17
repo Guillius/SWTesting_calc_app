@@ -68,9 +68,6 @@ public class OneOperandCalculation extends Calculation {
                         if(Double.isNaN( answer ) ){
                             status = -1;
                             error = "Operand was NaN or less than zero.";
-                        } else if ( Double.isInfinite( answer ) ){
-                            status = -1;
-                            error = "Operand was pos_Inf or zero.";
                         }
                         break;
             default:    status = -1;

@@ -30,7 +30,7 @@ public class CLInterface {
        System.out.println("\t" + "3. use \"v(x,y,z)\" to specify a vector with elements x,y and z as an operand.");
        System.out.println("Some example inputs:");
        int result = parser.parseInputString( "5.2 + 13" );
-       System.out.println("\t" + "5.2 + 3" + "\t" + "= " + answerFormat.format( parser.getLastAnswer() ) );
+       System.out.println("\t" + "5.2 + 13" + "\t" + "= " + answerFormat.format( parser.getLastAnswer() ) );
        result = parser.parseInputString( "15 mod 4" );
        System.out.println("\t" + "15 mod 4" + "\t" + "= " + answerFormat.format( parser.getLastAnswer() ) );
        result = parser.parseInputString( "v(1,2,-3) . 5" );
