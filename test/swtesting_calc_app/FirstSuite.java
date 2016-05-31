@@ -13,7 +13,7 @@ import org.junit.runners.Suite;
  * @author Guillaume
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({swtesting_calc_app.ParserTest.class, swtesting_calc_app.CLInterfaceTest.class, swtesting_calc_app.OneOperandCalculationTest.class, swtesting_calc_app.VectorVectorCalculationTest.class, swtesting_calc_app.TwoOperandCalculationTest.class, swtesting_calc_app.VectorScalarCalculationTest.class})
+@Suite.SuiteClasses({swtesting_calc_app.ParserTest.class, swtesting_calc_app.CalculationTest.class, swtesting_calc_app.CLInterfaceTest.class, swtesting_calc_app.OneOperandCalculationTest.class, swtesting_calc_app.VectorVectorCalculationTest.class, swtesting_calc_app.TwoOperandCalculationTest.class, swtesting_calc_app.VectorScalarCalculationTest.class})
 public class FirstSuite {
 
     @BeforeClass

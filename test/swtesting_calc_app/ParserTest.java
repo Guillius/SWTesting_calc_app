@@ -6,6 +6,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import swtesting_calc_app.CLInterface;
+import swtesting_calc_app.Parser;
 import static org.junit.Assert.*;
 
 /**
@@ -20,7 +22,6 @@ public class ParserTest {
         
         parser = new Parser( new CLInterface() );
         
-        System.out.println( "ParserTest: constructor done, created test Object." );
     }
     
     public Parser getParserTestObject(){
@@ -47,22 +48,65 @@ public class ParserTest {
      * Test of parseInputString method, of class Parser.
      */
     @Test
-    public void testParseInputString() {
-        
+    public void parseNullString() {
         assertEquals( -1, parser.parseInputString( null ) );
+    }
+
+    @Test
+    public void parseZeroToNegativePower() {
         assertEquals( -1, parser.parseInputString( "0 ^ -1" ) );
+    }
+
+    @Test
+    public void parseOneOperand() {
         assertEquals( 0, parser.parseInputString( "ln 5" ) );
+    }
+
+    @Test
+    public void parseDecimalOperand() {
         assertEquals( 0, parser.parseInputString( "3.0 + 1") );
+    }
+
+    @Test
+    public void parseInvalidOperand() {
         assertEquals( -1, parser.parseInputString( "3 r 5" ) );
+    }
+
+    @Test
+    public void parseTwoOperandSum() {
         assertEquals( 0, parser.parseInputString( "3 + 5" ) );
+    }
+
+    @Test
+    public void parseNoSpaces() {
         assertEquals( -1, parser.parseInputString( "1+2" ) );
+    }
+
+    @Test
+    public void parseTripleSum() {
         assertEquals( -1, parser.parseInputString( "1 + 2 + 3") );
+    }
+
+    @Test
+    public void parseVectorScalar() {
         assertEquals( 1, parser.parseInputString( "v(1,2,3) . 3" ) );
+    }
+
+    @Test
+    public void parseVectorVector() {
         assertEquals( 0, parser.parseInputString( "v(1,2,3) . v(1,2,3)" ) );
-     //   assertEquals( -1, parser.parseInputString( "3..0 + 3" ) );
-     //   assertEquals( -1, parser.parseInputString( "V(3,2,1) x v(1,2,3)" ) );
-                
-        System.out.println( "ParserTest: testParseInputString() method." );
+    }
+
+    @Test( expected = NumberFormatException.class )
+    public void parseInputIllegalNumber() {
+        //Exception NumberFormatException
+        assertEquals( -1, parser.parseInputString( "3..0 + 3" ) );
+    }
+
+    @Test( expected = NumberFormatException.class )
+    public void parseInputBigVectorV() {
+        //Exception NumberFormatException
+        assertEquals( -1, parser.parseInputString( "V(3,2,1) x v(1,2,3)" ) );
     }
 
     /**
@@ -74,7 +118,6 @@ public class ParserTest {
         parser.parseInputString( "3 + 5" );
         assertEquals( 8, parser.getLastAnswer(), 0.001 );
                 
-        System.out.println( "ParserTest: testGetLastAnswer() method." );
     }
 
     /**
@@ -83,17 +126,12 @@ public class ParserTest {
     @Test
     public void testGetLastVectorAnswer() {
         
-        assertEquals( 1, parser.parseInputString( "3 . v(1,1,-1)" ) );
+        parser.parseInputString( "3 . v(1,1,-1)" );
         
         double result[] = { 3, 3, -3 };
         
-        assertEquals( result.length, parser.getLastVectorAnswer().length );
-        
-        for( int i=0; i<result.length; i++ ){
-            assertEquals( result[i], parser.getLastVectorAnswer()[i], 0.001 );
-        }
-                
-        System.out.println( "ParserTest: testGetLastVectorAnswer() method." );
+        assertArrayEquals( result, parser.getLastVectorAnswer(), 0.001 );
+                        
     }
 
     /**
@@ -102,10 +140,9 @@ public class ParserTest {
     @Test
     public void testGetErrorMessage() {
         
-        assertEquals( -1, parser.parseInputString( "1" ) );
+        parser.parseInputString( "1" );
         assertEquals( "Too little elements to parse as a calculation.", parser.getErrorMessage() );
         
-        System.out.println( "ParserTest: testGetErrorMessage() method." );
     }
     
 }

@@ -6,12 +6,13 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+
 /**
  *
  * @author Guillaume
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({swtesting_calc_app.FirstSuite.class})
+@Suite.SuiteClasses({swtesting_calc_app.FirstSuite.class, swtesting_calc_app.ReqBasedSuite.class})
 public class RootSuite {
 
     @BeforeClass

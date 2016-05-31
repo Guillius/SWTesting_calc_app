@@ -8,6 +8,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Ignore;
+import swtesting_calc_app.CLInterface;
 
 /**
  *
@@ -21,7 +22,6 @@ public class CLInterfaceTest {
         
         cli = new CLInterface();
         
-        System.out.println( "CLInterfaceTest: constructor done, created test Object." );
     }
     
     @BeforeClass
@@ -51,13 +51,12 @@ public class CLInterfaceTest {
         
         cli.main( args );
         
-        System.out.println( "CLInterfaceTest: testMain() method." );
     }
 
     /**
      * Test of addToHistory method, of class CLInterface.
      */
-    @Ignore
+    @Ignore //used by Parser class (see testGetPreviousHistoryEntry)
     @Test
     public void testAddToHistory() {
     }
@@ -73,7 +72,6 @@ public class CLInterfaceTest {
         
         assertEquals( "3.0 + 3.0", cli.getPreviousHistoryEntry(1).toString() );
         
-        System.out.println( "CLInterfaceTest: testGetPreviousHistoryEntry() method." );
     }
     
 }

@@ -11,7 +11,7 @@ import org.junit.runners.Suite;
  * @author Guillaume
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({swtesting_calc_app.ReqBasedPlus.class, swtesting_calc_app.ReqBasedDivide.class, swtesting_calc_app.ReqBasedSine.class, swtesting_calc_app.ReqBasedVectorScalar.class, swtesting_calc_app.ReqBasedLn.class})
+@Suite.SuiteClasses({swtesting_calc_app.ReqBasedPlus.class, swtesting_calc_app.ReqBasedDivide.class, swtesting_calc_app.ReqBasedSine.class, swtesting_calc_app.ReqBasedLn.class})
 public class ReqBasedSuite {
 
     @BeforeClass

@@ -1,11 +1,9 @@
 
 package swtesting_calc_app;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import swtesting_calc_app.Calculation;
+import swtesting_calc_app.OneOperandCalculation;
 import static org.junit.Assert.*;
 
 /**
@@ -20,7 +18,6 @@ public class CalculationTest {
         
         testObject = new OneOperandCalculation( "sin", 45.0 );
         
-        System.out.println( "CalculationTest: constructor done, created test Object." );
     }
     
     /**
@@ -31,7 +28,6 @@ public class CalculationTest {
         
         assertEquals( "sin", testObject.getOperator() );
         
-        System.out.println( "CalculationTest: testGetOperator() method." );
     }
 
     public class CalculationImpl extends Calculation {
